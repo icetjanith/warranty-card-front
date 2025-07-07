@@ -53,7 +53,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ token, onLogout }) => {
 
   const fetchStats = useCallback(async () => {
     try {
-      const response = await fetch('/api/admin/dashboard', {
+      const response = await fetch('https://warranty-card-backend.vercel.app/api/admin/dashboard', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

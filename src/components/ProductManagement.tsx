@@ -38,7 +38,7 @@ const ProductManagement: React.FC<ProductManagementProps> = ({ token, onStatsUpd
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('/api/admin/categories', {
+      const response = await fetch('https://warranty-card-backend.vercel.app/api/admin/categories', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -54,7 +54,7 @@ const ProductManagement: React.FC<ProductManagementProps> = ({ token, onStatsUpd
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/admin/products', {
+      const response = await fetch('https://warranty-card-backend.vercel.app/api/admin/products', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -84,8 +84,8 @@ const ProductManagement: React.FC<ProductManagementProps> = ({ token, onStatsUpd
     }
     
     const url = editingProduct 
-      ? `/api/admin/products/${editingProduct._id}`
-      : '/api/admin/products';
+      ? `https://warranty-card-backend.vercel.app/api/admin/products/${editingProduct._id}`
+      : 'https://warranty-card-backend.vercel.app/api/admin/products';
     
     const method = editingProduct ? 'PUT' : 'POST';
     
@@ -119,7 +119,7 @@ const ProductManagement: React.FC<ProductManagementProps> = ({ token, onStatsUpd
   const handleDelete = async (productId: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        const response = await fetch(`/api/admin/products/${productId}`, {
+        const response = await fetch(`https://warranty-card-backend.vercel.app/api/admin/products/${productId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

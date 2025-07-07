@@ -39,7 +39,7 @@ const ShopManagement: React.FC<ShopManagementProps> = ({ token, onStatsUpdate })
 
   const fetchShops = async () => {
     try {
-      const response = await fetch('/api/admin/shops', {
+      const response = await fetch('https://warranty-card-backend.vercel.app/api/admin/shops', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -61,8 +61,8 @@ const ShopManagement: React.FC<ShopManagementProps> = ({ token, onStatsUpdate })
     setSubmitError('');
     
     const url = editingShop 
-      ? `/api/admin/shops/${editingShop._id}`
-      : '/api/admin/shops';
+      ? `https://warranty-card-backend.vercel.app/api/admin/shops/${editingShop._id}`
+      : 'https://warranty-card-backend.vercel.app/api/admin/shops';
     
     const method = editingShop ? 'PUT' : 'POST';
     
@@ -99,7 +99,7 @@ const ShopManagement: React.FC<ShopManagementProps> = ({ token, onStatsUpdate })
   const handleDelete = async (shopId: string) => {
     if (window.confirm('Are you sure you want to delete this shop?')) {
       try {
-        const response = await fetch(`/api/admin/shops/${shopId}`, {
+        const response = await fetch(`https://warranty-card-backend.vercel.app/api/admin/shops/${shopId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -136,7 +136,7 @@ const ShopManagement: React.FC<ShopManagementProps> = ({ token, onStatsUpdate })
     if (!shopQRCodes[shop.shopId]) {
       setShopQRCodesLoading(shop.shopId);
       try {
-        const response = await fetch(`/api/admin/shops/${shop.shopId}/qrcodes`, {
+        const response = await fetch(`https://warranty-card-backend.vercel.app/api/admin/shops/${shop.shopId}/qrcodes`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (response.ok) {

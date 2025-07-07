@@ -44,7 +44,7 @@ const QRScanner: React.FC = () => {
 
   const fetchQRData = async () => {
     try {
-      const response = await fetch(`/api/public/qr/${serialNumber}`);
+      const response = await fetch(`https://warranty-card-backend.vercel.app/api/public/qr/${serialNumber}`);
       const data = await response.json();
 
       if (response.ok) {
